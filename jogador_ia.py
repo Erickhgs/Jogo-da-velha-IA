@@ -12,43 +12,40 @@ class JogadorIA(Jogador):
     def getJogada(self) -> (int, int):
       # Regra 1  
         # Verificando linhas e colunas vitoria
+        somal=0 
         for l in range (0,3):
-         somal=0
          for c in range (0,3):
            somal += self.matriz[l][c]
          if somal == 2:
             for c in range (0,3):
                if self.matriz[l][c] == Tabuleiro.DESCONHECIDO: 
                 return (l,c)
-               
+        somal=0    
         for c in range (0,3):
-         somal=0
          for l in range (0,3):
            somal += self.matriz[l][c]
          if somal == 2 :
             for l in range (0,3):
                if self.matriz[l][c] == Tabuleiro.DESCONHECIDO: 
                 return (l,c)
+        somal=0
         # Verificando linhas e colunas bloqueio
-        
         for l in range (0,3):
-         somal=0
          for c in range (0,3):
            somal += self.matriz[l][c]
          if somal == 8:
             for c in range (0,3):
                if self.matriz[l][c] == Tabuleiro.DESCONHECIDO: 
                 return (l,c)
-         
+        somal=0
         for c in range (0,3):
-         somal=0
          for l in range (0,3):
            somal += self.matriz[l][c]
          if somal == 8 :
             for l in range (0,3):
                if self.matriz[l][c] == Tabuleiro.DESCONHECIDO: 
                 return (l,c)
-  
+        somal=0
         # Verificando diagonais
         somad = 0
         somads = 0
@@ -78,17 +75,19 @@ class JogadorIA(Jogador):
           
       
         # Regra 2
-        for l in range (0,3):
-         somal=0
-         for c in range (0,3):
-           somal += self.matriz[l][c]
-           if somal == 1 :
-            somal = 0
-            for a in range(0,3):
-              somal = self.matriz[a][c]
-              if somal == 1:
+        for l in range(3):
+            for c in range(3):
+                somal = somal + self.matriz[l][c]
+            if somal == 1:
                 somal = 0
-                return (l,c)
+                for a in range(3):
+                    for b in range(3):
+                        somal = somal + self.matriz[b][a]
+                    if somal == 1:
+                        if self.matriz[l][a] == Tabuleiro.DESCONHECIDO:
+                            return (l, a)
+                    somal=0
+            somal=0
                
        
         # Regra 3 
