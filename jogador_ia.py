@@ -20,7 +20,7 @@ class JogadorIA(Jogador):
             for c in range (0,3):
                if self.matriz[l][c] == Tabuleiro.DESCONHECIDO: 
                 return (l,c)
-        somal=0    
+         somal=0    
         for c in range (0,3):
          for l in range (0,3):
            somal += self.matriz[l][c]
@@ -28,7 +28,7 @@ class JogadorIA(Jogador):
             for l in range (0,3):
                if self.matriz[l][c] == Tabuleiro.DESCONHECIDO: 
                 return (l,c)
-        somal=0
+         somal=0
         # Verificando linhas e colunas bloqueio
         for l in range (0,3):
          for c in range (0,3):
@@ -37,7 +37,7 @@ class JogadorIA(Jogador):
             for c in range (0,3):
                if self.matriz[l][c] == Tabuleiro.DESCONHECIDO: 
                 return (l,c)
-        somal=0
+         somal=0
         for c in range (0,3):
          for l in range (0,3):
            somal += self.matriz[l][c]
@@ -45,7 +45,7 @@ class JogadorIA(Jogador):
             for l in range (0,3):
                if self.matriz[l][c] == Tabuleiro.DESCONHECIDO: 
                 return (l,c)
-        somal=0
+         somal=0
         # Verificando diagonais
         somad = 0
         somads = 0
